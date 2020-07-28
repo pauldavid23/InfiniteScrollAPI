@@ -20,7 +20,7 @@ function imageLoaded() {
         ready = true;
         loader.hidden = true;
         count = 30;
-        ApiUrl = `https://api.unsplash.com/photos/random/?client_id=${ApiKey}&count=${count}`
+        ApiUrl = `https://api.unsplash.com/photos/random/?client_id=${ApiKey}&count=${count}`;
 
     }
 }
