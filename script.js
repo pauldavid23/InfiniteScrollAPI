@@ -7,6 +7,9 @@ let imagesLoaded = 0;
 let totalImages = 0; 
 
 let photosArray = [];
+let count = 5; 
+const ApiKey = 'cH4DzUBcs0QGWZoNsU-Vzjipxf1XdCUkNyZ4hZNmEnw'; 
+const ApiUrl = `https://api.unsplash.com/photos/random/?client_id=${ApiKey}&count=${count}`;
 
 
 //Check if all images are loaded: 
@@ -16,6 +19,8 @@ function imageLoaded() {
     if (imagesLoaded === totalImages) {
         ready = true;
         loader.hidden = true;
+        count = 30;
+        ApiUrl = `https://api.unsplash.com/photos/random/?client_id=${ApiKey}&count=${count}`
 
     }
 }
@@ -44,7 +49,6 @@ function displayPhotos () {
             target: '_blank'
         });
         
-
         setAttributes(img, {
             src: photo.urls.regular,
             alt: photo.alt_description,
@@ -61,12 +65,6 @@ img.addEventListener('load', imageLoaded);
     });
 }
 
-const count = 30; 
-const ApiKey = 'cH4DzUBcs0QGWZoNsU-Vzjipxf1XdCUkNyZ4hZNmEnw'; 
-const ApiUrl = `https://api.unsplash.com/photos/random/?client_id=${ApiKey}&count=${count}`;
-
-
-
 
 /* Get Photos Using Unsplash API */
 async function getPhotos () {
@@ -82,8 +80,6 @@ async function getPhotos () {
     }
 
 }
-
-
 
 //Event listener to check how often it is clicked
 
